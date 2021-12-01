@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>FRIKHA IMMOBILIER</title>
+  <title>الفريخة للعقارات</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
   <link href="style/image/icon1.jpg" rel="icon">

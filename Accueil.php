@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>FRIKHA IMMOBILIER</title>
+  <title>الفريخة للعقارات</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
   <link href="style/image/icon1.jpg" rel="icon">
@@ -127,7 +127,7 @@
                       <br> Olive Road Two
                     </h1>
                     <p class="intro-subtitle intro-price">
-                      <a href="#"><span class="price-a">rent | $ 12.000</span></a>
+                      <a href="#"></a>
                     </p>
                   </div>
                 </div>
@@ -144,15 +144,15 @@
               <div class="row">
                 <div class="col-lg-8">
                   <div class="intro-body">
-                    <p class="intro-title-top">Doral, Florida
-                      <br> 78345
+                    <p class="intro-title-top">𝐑𝐭𝐞 𝐃𝐞 𝐓𝐞𝐛𝐨𝐥𝐛𝐢 
+                      <br>𝐤𝐦 5,𝟓 à 𝐒𝐟𝐚𝐱
                     </p>
                     <h1 class="intro-title mb-4">
                       <span class="color-b">204 </span> Rino
                       <br> Venda Road Five
                     </h1>
                     <p class="intro-subtitle intro-price">
-                      <a href="#"><span class="price-a">rent | $ 12.000</span></a>
+                      <a href="#"></a>
                     </p>
                   </div>
                 </div>
@@ -177,7 +177,7 @@
                       <br> Roan Road One
                     </h1>
                     <p class="intro-subtitle intro-price">
-                      <a href="#"><span class="price-a">rent | $ 12.000</span></a>
+                      <a href="#"></a>
                     </p>
                   </div>
                 </div>

@@ -90,7 +90,7 @@ body {
   }
   
   .text-brand {
-    color: white;
+    color: #2eca6a;
     font-size: 2rem;
     font-weight: 600;
   }
@@ -652,7 +652,7 @@ body {
     color: #000000;
   }
   .navbar-default.navbar-reduce .navbar-brand {
-    color: #000000;
+    color: #f9f9f9;
   }
   .navbar-default .dropdown .dropdown-menu {
     border-top: 0;
@@ -950,7 +950,7 @@ body {
   }
   @media (min-width: 992px) {
     .intro .intro-title {
-      font-size: 4rem;
+      font-size: 2rem;
     }
   }
   .intro .intro-subtitle {
@@ -1884,7 +1884,7 @@ body {
     margin-top: 24px;
     background: #f3f3f3;
 }
-  }
+  
   .section-footer ul {
     line-height: 2;
   }
