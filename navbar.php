@@ -6,7 +6,7 @@
         <span></span>
       </button>
      
-      <a class="navbar-brand text-brand" href="index.html">FRIKHA <span class="color-b">IMMOBILIER</span></a>
+      <a class="navbar-brand text-brand" href="Accueil.php">FRIKHA <span class="color-b">IMMOBILIER</span></a>
   
       <img src="style/image/icon1.jpg" alt="" class="icon-im">
 
@@ -46,9 +46,9 @@
         </ul>
       </div>
 
-      <button type="button" class="btn btn-b-n navbar-toggle-box navbar-toggle-box-collapse" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01">
+      <!-- <button type="button" class="btn btn-b-n navbar-toggle-box navbar-toggle-box-collapse" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01">
         <i class="bi bi-search"></i>
-      </button>
+      </button> -->
 
     </div>
   </nav><!-- End Header/Navbar -->

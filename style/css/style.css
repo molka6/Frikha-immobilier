@@ -419,8 +419,9 @@ body {
   .socials-a {
     text-decoration: none;
   }
-  .socials-a .list-inline-item:not(:last-child) {
+  .socials-a .list-inline-item {
     margin-right: 25px;
+    font-size: 22px;
   }
   
   /*--------------------------------------------------------------
@@ -433,7 +434,7 @@ body {
     right: 15px;
     bottom: 15px;
     z-index: 996;
-    background: #004b3e;
+    background: #2eca6a !important;
     width: 40px;
     height: 40px;
     border-radius: 50px;
@@ -471,7 +472,7 @@ body {
     top: calc(50% - 30px);
     left: calc(50% - 30px);
     border: 6px solid #f2f2f2;
-    border-top: 6px solid #2eca6a;
+    border-top: 6px solid #004b3e;
     border-radius: 50%;
     width: 60px;
     height: 60px;
@@ -1083,13 +1084,6 @@ body {
     }
   }
   
-  .card-overlay {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-  }
   
   .card-shadow {
     -webkit-backface-visibility: hidden;
@@ -1310,6 +1304,8 @@ body {
     position: absolute;
     bottom: 20px;
     z-index: 2;
+    /* top: 50%; left: 50%;  */
+    /* transform: translate(-50%, -50%); */
   }
   @media (min-width: 768px) {
     .card-header-b {
@@ -1585,8 +1581,9 @@ body {
     bottom: 10px;
     left: 0;
   }
-  .card-box-d .list-inline-item:not(:last-child) {
+  .card-box-d .list-inline-item {
     margin-right: 25px;
+    
   }
   .card-box-d:hover .card-overlay-hover {
     background-color: #2eca6a;
@@ -1883,9 +1880,10 @@ body {
   # Footer
   --------------------------------------------------------------*/
   .section-footer {
-    padding-top: 60px;
-    margin-top: 60px;
+    padding-top: 28px;
+    margin-top: 24px;
     background: #f3f3f3;
+}
   }
   .section-footer ul {
     line-height: 2;
@@ -1911,39 +1909,67 @@ body {
   footer .credits {
     font-size: 14px;
   }
-
+  
   .test{
       height: 90% !important;
   }
   .maison{
       margin-top: -154px;
   }
-
-.postition-title{
-    position: absolute; 
-  top: 50%; left: 50%; 
-  transform: translate(-50%, -50%);
-}
-.postition-title a{
-    color: white;
-    text-decoration: none;
-}
-
-.contact{
+  
+  
+  
+  
+  .contact{
     text-align: center;
-}
-
-.icon-im{
+    margin-bottom: 4px;
+    font-family: 'Roboto', Helvetica, Arial, sans-serif;
+    font-weight: 700;
+  }
+  
+  .icon-im{
     width: 70px !important;
     height: 92px;
     padding-bottom: 18px;
-}
-
-.icon-footer {
+  }
+  
+  .icon-footer {
     width: 191px;
     height: 194px;
-}
-
-.taille-social{
+  }
+  
+  
+  
+  .taille-social{
     width: 50px;
-}
+  }
+  
+  .gmail{
+  width: 20px;
+  }
+  
+  .res-style{
+  float: left;
+  }
+  
+   
+  .card-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  } 
+  
+
+    .title-position{
+      position: absolute !important;
+      top: 58%; left: 50%; 
+      transform: translate(-50%, -50%);
+    }
+    .devder{
+    width: 100%;
+    height: 23px;
+    background: url(../image/devider.png) no-repeat center center;
+    margin: 5px 0 31px;
+    }

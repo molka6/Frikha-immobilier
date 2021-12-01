@@ -1,61 +1,38 @@
-  <!-- ======= Footer ======= -->
+ 
+ 
+ <!-- ======= Footer ======= -->
   <section class="section-footer">
     <div class="container">
       <div class="row">
-
-
-<h3 class="contact"> Nous Contacter </h3>
-
-
+<h3 class="contact"> Contact </h3>
+<div class="devder">  </div>
         <div class="col-sm-12 col-md-4">
           <div class="widget-a">
             <div class="w-header-a">
-              <h3 class="w-title-a text-brand">EstateAgency</h3>
+              <img src="style/image/tel.png" style="width:30px; display:inline-block;  margin-right:10px;" alt="" >
+              <p style="display:inline-block;"  > 50 347 034</p>
             </div>
           </div>
         </div>
-
-
-
-
         <div class="col-sm-12 col-md-4 section-md-t3">
           <div class="widget-a">
             <div class="w-header-a">
-              <h3 class="w-title-a text-brand">The Company</h3>
+              <img src="style/image/espace-reserve.png" style="width:30px; display:inline-block;  margin-right:10px;" alt="" >
+              <p style="display:inline-block;"  > 50 347 034</p>
             </div>
-        
           </div>
         </div>
-
-
-
-
         <div class="col-sm-12 col-md-4 section-md-t3">
           <div class="widget-a">
             <div class="w-header-a">
-              <h3 class="w-title-a text-brand">International sites</h3>
+              <img src="style/image/email.png" style="width:30px; display:inline-block;  margin-right:10px;" alt="" >
+              <p style="display:inline-block;"  > 50 347 034</p>
             </div>
-          
           </div>
         </div>
-
-
-
-
-
-
-
-
-
-
-
-
       </div>
     </div>
   </section>
-
-
-
 
   <footer>
     <div class="container">
@@ -92,7 +69,7 @@
           <div class="copyright-footer">
             <p class="copyright color-text-a">
               &copy; Copyright
-              <span class="color-a">2022</span> Frikha Imobillier 
+              <span class="color-a">2022</span> Molka & Rayen
             </p>
           </div>
         </div>

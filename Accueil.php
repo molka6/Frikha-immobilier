@@ -14,7 +14,7 @@
   <link href="style/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="style/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="style/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  <link href="style/css/stylepage.css" rel="stylesheet"> 
+  <link href="style/css/style.css" rel="stylesheet"> 
 </head>
 <body>
   <div class="click-closed"></div>
@@ -109,12 +109,8 @@
     </div>
   </div>
   <?php include 'navbar.php';?>
-
-  <!-- ======= Intro Section ======= -->
   <div class="intro intro-carousel swiper position-relative">
-
     <div class="swiper-wrapper">
-
       <div class="swiper-slide carousel-item-a intro-item bg-image" style="background-image: url(style/img/slide-1.jpg)">
         <div class="overlay overlay-a"></div>
         <div class="intro-content display-table">
@@ -299,84 +295,75 @@
     <section class="news-grid grid">
       <div class="container">
         <div class="row">
-
-
-        <div class="col-md-4">
-            <div class="card-box-b card-shadow news-box test">
-              <div class="img-box-b">
-                <img src="style/img/post-3.jpg" alt="" class="img-b img-fluid">
-              </div>
-              <div class="card-overlay">
-                <div class="postition-title">
-                  <div class="card-title-b">
-                    <h2 class="title-2 "><a href="maison.html">Maison</a></h2>
-                  </div>
-                </div>
-              </div>
-            </div>
-        </div>
-   
           <div class="col-md-8 ">
             <div class="card-box-b card-shadow news-box test">
               <div class="img-box-b">
                 <img src="style/img/slide-3.jpg" alt="" class="img-b img-fluid">
               </div>
               <div class="card-overlay">
-                <div class="postition-title">
+                <div class="card-header-b title-position" >
                   <div class="card-title-b">
-                    <h2 class="title-2"> <a href="blog-single.html">Appartement</a></h2>
+                    <h2 class="title-2"> <a href="maison.php">Maison</a></h2>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-   
-
-                <!-- +++++++++++++++++++++++++ -->
-         <div class="col-md-8">
+          <div class="col-md-4">
             <div class="card-box-b card-shadow news-box test">
               <div class="img-box-b">
                 <img src="style/img/slide-3.jpg" alt="" class="img-b img-fluid">
               </div>
               <div class="card-overlay">
-                <div class="postition-title">
+                <div class="card-header-b title-position" >
                   <div class="card-title-b">
-                    <h2 class="title-2"> <a href="blog-single.html">Terrain</a></h2>
+                    <h2 class="title-2"> <a href="Appartement.php">Appartement</a></h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-8 ">
+            <div class="card-box-b card-shadow news-box test">
+              <div class="img-box-b">
+                <img src="style/img/slide-3.jpg" alt="" class="img-b img-fluid">
+              </div>
+              <div class="card-overlay">
+                <div class="card-header-b title-position" >
+                  <div class="card-title-b">
+                    <h2 class="title-2"> <a href="maison.php">Villa</a></h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card-box-b card-shadow news-box test">
+              <div class="img-box-b">
+                <img src="style/img/slide-3.jpg" alt="" class="img-b img-fluid">
+              </div>
+              <div class="card-overlay">
+                <div class="card-header-b title-position" >
+                  <div class="card-title-b">
+                    <h2 class="title-2"> <a href="Appartement.php">Terrain</a></h2>
                   </div>
                 </div>
               </div>
             </div>
           </div>
    
+   
 
-          <div class="col-md-4">
-            <div class="card-box-b card-shadow news-box test">
-              <div class="img-box-b">
-                <img src="style/img/property-7.jpg" alt="" class="img-b img-fluid">
-              </div>
 
-              
-              <div class="card-overlay">
-                <div class="postition-title">
-                   <div class="card-title-b">
-                    <h2 class="title-2"> <a href="blog-single.html">Villa </a></h2>
-                  </div>
+   
 
-                </div>
-              </div>
-            </div>
-          </div>
 
-        
+
         </div>
-    
       </div>
-    </section><!-- End Blog Grid-->
-
-  </main><!-- End #main -->
+    </section>
+  </main>
   <?php include 'footer.php';?>
-
-  <!-- **********************************menu end ********************** -->
   <div id="preloader"></div>
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
   <script src="style/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
