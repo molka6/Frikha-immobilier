@@ -16,36 +16,22 @@
   <link href="style/css/style.css" rel="stylesheet"> 
 </head>
 <body>
+<?php include 'Connexion/connexion.php';?>
   <div class="click-closed"></div>
   <div class="box-collapse">
-
     <div class="title-box-d">
       <h3 class="title-d">Search Property</h3>
     </div>
-
-
     <span class="close-box-collapse right-boxed bi bi-x"></span>
-
-
     <div class="box-collapse-wrap form">
       <form class="form-a">
         <div class="row">
           <div class="col-md-12 mb-2">
-
-
             <div class="form-group">
               <label class="pb-2" for="Type">Keyword</label>
               <input type="text" class="form-control form-control-lg form-control-a" placeholder="Keyword">
             </div>
-
-
-
           </div>
-
-
-
-
-
           <div class="col-md-6 mb-2">
             <div class="form-group mt-3">
               <label class="pb-2" for="Type">Type</label>
@@ -57,12 +43,6 @@
               </select>
             </div>
           </div>
-
-
-
-
-
-
           <div class="col-md-6 mb-2">
             <div class="form-group mt-3">
               <label class="pb-2" for="city">City</label>
@@ -75,12 +55,6 @@
               </select>
             </div>
           </div>
-
-
-
-
-
-
           <div class="col-md-6 mb-2">
             <div class="form-group mt-3">
               <label class="pb-2" for="bedrooms">Bedrooms</label>
@@ -92,11 +66,6 @@
               </select>
             </div>
           </div>
-
-
-
-
-
           <div class="col-md-6 mb-2">
             <div class="form-group mt-3">
               <label class="pb-2" for="garages">Garages</label>
@@ -109,11 +78,6 @@
               </select>
             </div>
           </div>
-
-
-
-
-
           <div class="col-md-6 mb-2">
             <div class="form-group mt-3">
               <label class="pb-2" for="bathrooms">Bathrooms</label>
@@ -125,11 +89,6 @@
               </select>
             </div>
           </div>
-
-
-
-
-
           <div class="col-md-6 mb-2">
             <div class="form-group mt-3">
               <label class="pb-2" for="price">Min Price</label>
@@ -142,12 +101,6 @@
               </select>
             </div>
           </div>
-
-
-
-
-
-
           <div class="col-md-12">
             <button type="submit" class="btn btn-b">Search Property</button>
           </div>
@@ -155,29 +108,16 @@
       </form>
     </div>
   </div>
-
   <?php include 'navbar.php';?>
-
   <main id="main">
-
-
-
-
-<!-- ----------------------------------------------------------------------------------- -->
     <section class="intro-single">
       <div class="container">
         <div class="row">
-
-
           <div class="col-md-12 col-lg-8">
             <div class="title-single-box">
               <h1 class="title-single">Maison</h1>
-           
             </div>
           </div>
-
-
-
           <div class="col-md-12 col-lg-4">
             <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
               <ol class="breadcrumb">
@@ -190,57 +130,51 @@
               </ol>
             </nav>
           </div>
-<!-- ----------------------------------------------------------------------------------- -->
-
         </div>
       </div>
     </section>
-<!-- ----------------------------------------------------------------------------------- -->
     <section class="property-grid grid">
       <div class="container">
         <div class="row">
-
-
           <div class="col-sm-12">
             <div class="grid-option">
               <form>
                 <select class="custom-select">
                   <option selected>All</option>
-                  <option value="1">New to Old</option>
+                  <option value="1">Disponible</option>
                   <option value="2">For Rent</option>
                   <option value="3">For Sale</option>
                 </select>
               </form>
             </div>
           </div>
-
-         
-          
-
-
-
 <!-- ----------------------------------------------------------------------------------- -->
+<?php
+$sqlQuery = 'SELECT * FROM maison';
+$recipesStatement = $mysqlClient->prepare($sqlQuery);
+$recipesStatement->execute();
+$recipes = $recipesStatement->fetchAll();
+foreach ($recipes as $key => $recipe) {
+?>
 
-         
-
-<!-- ----------------------------------------------------------------------------------- -->
-          <div class="col-md-3">
+<?php  if($key < 8) {
+  ?>
+    <div class="col-md-3">
             <div class="card-box-a card-shadow">
               <div class="img-box-a">
                 <img src="style/img/property-1.jpg" alt="" class="img-a img-fluid">
               </div>
-
               <div class="card-overlay">
                 <div class="card-overlay-a-content">
                   <div class="card-header-a">
                     <h2 class="card-title-a">
                       <a href="#">204 Mount
-                        <br /> Olive Road Two</a>
+                        <br /> <?php echo $recipe['Titre']; ?> </a>
                     </h2>
                   </div>
                   <div class="card-body-a">
                     <div class="price-box d-flex">
-                      <span class="price-a">rent | $ 12.000</span>
+                      <span class="price-a"><?php echo $recipe['disponibilité']; ?> </span>
                     </div>
                     <a href="property-single.html" class="link-a">Voir détails
                       <span class="bi bi-chevron-right"></span>
@@ -249,22 +183,16 @@
                   <div class="card-footer-a">
                     <ul class="card-info d-flex justify-content-around">
                       <li>
-                        <h4 class="card-info-title">Area</h4>
-                        <span>340m
-                          <sup>2</sup>
+                        <h4 class="card-info-title">Superficie</h4>
+                        <span> <?php echo $recipe['Superficie'];?>m
+                          <sup>2</sup> 
                         </span>
                       </li>
                       <li>
-                        <h4 class="card-info-title">Beds</h4>
-                        <span>2</span>
-                      </li>
-                      <li>
-                        <h4 class="card-info-title">Baths</h4>
-                        <span>4</span>
-                      </li>
-                      <li>
-                        <h4 class="card-info-title">Garages</h4>
-                        <span>1</span>
+                        <h4 class="card-info-title">Construite</h4>
+                        <span> <?php echo $recipe['Superficie construite'];?>m
+                          <sup>2</sup> 
+                        </span>
                       </li>
                     </ul>
                   </div>
@@ -272,258 +200,10 @@
               </div>
             </div>
           </div>
-          <!-- ----------------------------------------------------------------------------------- -->
-          <div class="col-md-3">
-            <div class="card-box-a card-shadow">
-              <div class="img-box-a">
-                <img src="style/img/property-3.jpg" alt="" class="img-a img-fluid">
-              </div>
-              <div class="card-overlay">
-                <div class="card-overlay-a-content">
-                  <div class="card-header-a">
-                    <h2 class="card-title-a">
-                      <a href="#">204 Mount
-                        <br /> Olive Road Two</a>
-                    </h2>
-                  </div>
-                  <div class="card-body-a">
-                    <div class="price-box d-flex">
-                      <span class="price-a">rent | $ 12.000</span>
-                    </div>
-                    <a href="property-single.html" class="link-a">Voir détails
-                      <span class="bi bi-chevron-right"></span>
-                    </a>
-                  </div>
-                  <div class="card-footer-a">
-                    <ul class="card-info d-flex justify-content-around">
-                      <li>
-                        <h4 class="card-info-title">Area</h4>
-                        <span>340m
-                          <sup>2</sup>
-                        </span>
-                      </li>
-                      <li>
-                        <h4 class="card-info-title">Beds</h4>
-                        <span>2</span>
-                      </li>
-                      <li>
-                        <h4 class="card-info-title">Baths</h4>
-                        <span>4</span>
-                      </li>
-                      <li>
-                        <h4 class="card-info-title">Garages</h4>
-                        <span>1</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- ----------------------------------------------------------------------------------- -->
-
-          <div class="col-md-3">
-            <div class="card-box-a card-shadow">
-              <div class="img-box-a">
-                <img src="style/img/property-6.jpg" alt="" class="img-a img-fluid">
-              </div>
-              <div class="card-overlay">
-                <div class="card-overlay-a-content">
-                  <div class="card-header-a">
-                    <h2 class="card-title-a">
-                      <a href="#">204 Mount
-                        <br /> Olive Road Two</a>
-                    </h2>
-                  </div>
-                  <div class="card-body-a">
-                    <div class="price-box d-flex">
-                      <span class="price-a">rent | $ 12.000</span>
-                    </div>
-                    <a href="property-single.html" class="link-a">Voir détails
-                      <span class="bi bi-chevron-right"></span>
-                    </a>
-                  </div>
-                  <div class="card-footer-a">
-                    <ul class="card-info d-flex justify-content-around">
-                      <li>
-                        <h4 class="card-info-title">Area</h4>
-                        <span>340m
-                          <sup>2</sup>
-                        </span>
-                      </li>
-                      <li>
-                        <h4 class="card-info-title">Beds</h4>
-                        <span>2</span>
-                      </li>
-                      <li>
-                        <h4 class="card-info-title">Baths</h4>
-                        <span>4</span>
-                      </li>
-                      <li>
-                        <h4 class="card-info-title">Garages</h4>
-                        <span>1</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- ----------------------------------------------------------------------------------- -->
-
-          <div class="col-md-3">
-            <div class="card-box-a card-shadow">
-              <div class="img-box-a">
-                <img src="style/img/property-7.jpg" alt="" class="img-a img-fluid">
-              </div>
-              <div class="card-overlay">
-                <div class="card-overlay-a-content">
-                  <div class="card-header-a">
-                    <h2 class="card-title-a">
-                      <a href="#">204 Mount
-                        <br /> Olive Road Two</a>
-                    </h2>
-                  </div>
-                  <div class="card-body-a">
-                    <div class="price-box d-flex">
-                      <span class="price-a">120000000 TND</span>
-                    </div>
-                    <a href="property-single.html" class="link-a">Voir détails
-                      <span class="bi bi-chevron-right"></span>
-                    </a>
-                  </div>
-                  <div class="card-footer-a">
-                    <ul class="card-info d-flex justify-content-around">
-                      <li>
-                        <h4 class="card-info-title">Area</h4>
-                        <span>340m
-                          <sup>2</sup>
-                        </span>
-                      </li>
-                      <li>
-                        <h4 class="card-info-title">Beds</h4>
-                        <span>2</span>
-                      </li>
-                      <li>
-                        <h4 class="card-info-title">Baths</h4>
-                        <span>4</span>
-                      </li>
-                      <li>
-                        <h4 class="card-info-title">Garages</h4>
-                        <span>1</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- ----------------------------------------------------------------------------------- -->
-
-          <div class="col-md-3">
-            <div class="card-box-a card-shadow">
-              <div class="img-box-a">
-                <img src="style/img/property-8.jpg" alt="" class="img-a img-fluid">
-              </div>
-              <div class="card-overlay">
-                <div class="card-overlay-a-content">
-                  <div class="card-header-a">
-                    <h2 class="card-title-a">
-                      <a href="#">204 Mount
-                        <br /> Olive Road Two</a>
-                    </h2>
-                  </div>
-                  <div class="card-body-a">
-                    <div class="price-box d-flex">
-                      <span class="price-a">rent | $ 12.000</span>
-                    </div>
-                    <a href="property-single.html" class="link-a">Voir détails
-                      <span class="bi bi-chevron-right"></span>
-                    </a>
-                  </div>
-                  <div class="card-footer-a">
-                    <ul class="card-info d-flex justify-content-around">
-                      <li>
-                        <h4 class="card-info-title">Area</h4>
-                        <span>340m
-                          <sup>2</sup>
-                        </span>
-                      </li>
-                      <li>
-                        <h4 class="card-info-title">Beds</h4>
-                        <span>2</span>
-                      </li>
-                      <li>
-                        <h4 class="card-info-title">Baths</h4>
-                        <span>4</span>
-                      </li>
-                      <li>
-                        <h4 class="card-info-title">Garages</h4>
-                        <span>1</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- ----------------------------------------------------------------------------------- -->
-
-          <div class="col-md-3">
-            <div class="card-box-a card-shadow">
-              <div class="img-box-a">
-                <img src="style/img/property-10.jpg" alt="" class="img-a img-fluid">
-              </div>
-              <div class="card-overlay">
-                <div class="card-overlay-a-content">
-                  <div class="card-header-a">
-                    <h2 class="card-title-a">
-                      <a href="#">204 Mount
-                        <br /> Olive Road Two</a>
-                    </h2>
-                  </div>
-                  <div class="card-body-a">
-                    <div class="price-box d-flex">
-                      <span class="price-a">rent | $ 12.000</span>
-                    </div>
-                    <a href="property-single.html" class="link-a">Voir détails
-                      <span class="bi bi-chevron-right"></span>
-                    </a>
-                  </div>
-                  <div class="card-footer-a">
-                    <ul class="card-info d-flex justify-content-around">
-                      <li>
-                        <h4 class="card-info-title">Area</h4>
-                        <span>340m
-                          <sup>2</sup>
-                        </span>
-                      </li>
-                      <li>
-                        <h4 class="card-info-title">Beds</h4>
-                        <span>2</span>
-                      </li>
-                      <li>
-                        <h4 class="card-info-title">Baths</h4>
-                        <span>4</span>
-                      </li>
-                      <li>
-                        <h4 class="card-info-title">Garages</h4>
-                        <span>1</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- ----------------------------------------------------------------------------------- -->
-
-
-
-
+<?php
+}}
+?>
         </div>
-        <!-- ----------------------------------------------------------------------------------- -->
-
         <div class="row">
           <div class="col-sm-12">
             <nav class="pagination-a">
@@ -552,24 +232,14 @@
           </div>
         </div>
       </div>
-    </section><!-- End Property Grid Single-->
-
-  </main><!-- End #main -->
-
- 
-  
+    </section>
+  </main>
   <?php include 'footer.php';?>
   <div id="preloader"></div>
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-  <!-- Vendor JS Files -->
   <script src="style/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="style/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="style/vendor/php-email-form/validate.js"></script>
-
-  <!-- Template Main JS File -->
   <script src="style/js/main.js"></script>
-
 </body>
-
 </html>
