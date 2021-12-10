@@ -1242,6 +1242,10 @@ body {
     width: 200px;
     border-color: #313131;
   }
+
+  
+
+
   .property-grid .grid-option .custom-select:hover, .property-grid .grid-option .custom-select:active, .property-grid .grid-option .custom-select:focus {
     border-color: #313131;
   }
@@ -1960,7 +1964,10 @@ body {
     top: 0;
     left: 0;
   } 
-  
+
+ 
+
+ 
 
     .title-position{
       position: absolute !important;
@@ -1973,3 +1980,9 @@ body {
     background: url(../image/devider.png) no-repeat center center;
     margin: 5px 0 31px;
     }
+
+    
+
+  .property-grid  .nomb{
+     color: block;
+   }
