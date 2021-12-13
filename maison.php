@@ -103,7 +103,7 @@ foreach ($recipes as $key => $recipe) {
                     <div class="price-box d-flex">
                       <span class="price-a"><?php echo $recipe['disponibilité']; ?> </span>
                     </div>
-                    <a href="property-single.html" class="link-a">Voir détails
+                    <a href="detail.php" class="link-a">Voir détails
                       <span class="bi bi-chevron-right"></span>
                     </a>
                   </div>
