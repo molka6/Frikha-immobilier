@@ -19,9 +19,6 @@
 <div class="click-closed"></div>
   <?php include 'navbar.php';?>
   <main id="main">
-
-
-
     <section class="intro-single">
       <div class="container">
         <div class="row">
@@ -49,24 +46,13 @@
         </div>
       </div>
     </section>
-
-
-
-
-
-
-
     <section class="property-single nav-arrow-b">
       <div class="container">
+        <div class="row ">
 
-
-
-
-
-        <div class="row justify-content-center">
-          <div class="col-lg-8">
+          <div class="col-lg-6">
             <div id="property-single-carousel" class="swiper">
-              <div class="swiper-wrapper">
+              <div class="swiper-wrapper taille">
                 <div class="carousel-item-b swiper-slide">
                   <img src="style/img/post-1.jpg" alt="">
                 </div>
@@ -77,102 +63,131 @@
             </div>
             <div class="property-single-carousel-pagination carousel-pagination"></div>
           </div>
-        </div>
+<!-- ******************** -->
+          <div class="col-lg-6 details">
+            <div id="property-single-carousel" class="swiper">
+              <div class="swiper-wrapper taille">
+              <!-- /////////////// --> 
+              <div class="property-summary" style="margin-left: 2%; width: 100%">
 
-
-
-
-
-
-
-
-        <div class="row">
-          <div class="col-sm-12">
-            <div class="row justify-content-between">
-              <div class="col-md-5 col-lg-4">*
-                <div class="property-summary">
+<!-- //////////////////////////// title block //////////////////////////// -->
                   <div class="row">
                     <div class="col-sm-12">
-                      <div class="title-box-d section-t4">
-                        <h3 class="title-d">Quick Summary</h3>
+                      <div style="box-sizing: content-box;
+                                              width: 94%;
+                                              background-color :#ECF8F6;
+                                              border: solid #ECF8F6 3px;
+                                              padding: 12px;
+                                              padding-bottom: 0px;
+                                              text-align: center;
+                                              margin-bottom: 14px ;">
+                                     <h3 class="title-d detSyle ">Détails</h3>
                       </div>
                     </div>
                   </div>
+
+<!-- //////////////////////////// end block //////////////////////////// -->
+
+
+<!-- //////////////////////////// block1 //////////////////////////// -->
                   <div class="summary-list">
                     <ul class="list">
                       <li class="d-flex justify-content-between">
-                        <strong>Property ID:</strong>
+                        <div>
+                            <img src="style/image/surface.png" alt="" style="width: 6%; margin-right: 9px;">
+                            <strong>Superficie</strong>
+                        </div>
+                        <span>1134m²</span>
+                      </li>
+                      <li class="d-flex justify-content-between">
+                        <div>
+                            <img src="style/image/esquisser.png" alt="" style="width: 7%; margin-right: 9px;">
+                            <strong>Superficie construite: </strong>
+                        </div>
+                        <span>1134m²</span>
+                      </li>
+                      <li class="d-flex justify-content-between">
+                        <div>
+                            <img src="style/image/esquisser.png" alt="" style="width: 7%; margin-right: 9px;">
+                            <strong>Nombre de pièce: </strong>
+                        </div>
                         <span>1134</span>
                       </li>
                       <li class="d-flex justify-content-between">
-                        <strong>Location:</strong>
-                        <span>Chicago, IL 606543</span>
+                        <div>
+                            <img src="style/image/chambre.png" alt="" style="width: 7%; margin-right: 9px;">
+                            <strong>Nombre de chambre: </strong>
+                        </div>
+                        <span>1134</span>
                       </li>
-                      <li class="d-flex justify-content-between">
-                        <strong>Property Type:</strong>
-                        <span>House</span>
+                       <li class="d-flex justify-content-between">
+                        <div>
+                            <img src="style/image/salle.png" alt="" style="width: 7%; margin-right: 9px;">
+                            <strong>Nombre de salle d'eau: </strong>
+                        </div>
+                        <span>1134</span>
                       </li>
-                      <li class="d-flex justify-content-between">
-                        <strong>Status:</strong>
-                        <span>Sale</span>
-                      </li>
-                      <li class="d-flex justify-content-between">
-                        <strong>Area:</strong>
-                        <span>340m
-                          <sup>2</sup>
-                        </span>
-                      </li>
-                      <li class="d-flex justify-content-between">
-                        <strong>Beds:</strong>
-                        <span>4</span>
-                      </li>
-                      <li class="d-flex justify-content-between">
-                        <strong>Baths:</strong>
-                        <span>2</span>
-                      </li>
-                      <li class="d-flex justify-content-between">
-                        <strong>Garage:</strong>
-                        <span>1</span>
+                        <li class="d-flex justify-content-between">
+                        <div>
+                            <img src="style/image/salle-de-bains.png" alt="" style="width: 7%; margin-right: 9px;">
+                            <strong>Nombre de salle de bain: </strong>
+                        </div>
+                        <span>1134</span>
+                        </li>
+                        <li class="d-flex justify-content-between">
+                        <div>
+                            <img src="style/image/chambre3.png" alt="" style="width: 7%; margin-right: 9px;">
+                            <strong>Nombre de couchage: </strong>
+                        </div>
+                        <span>1134</span>
                       </li>
                     </ul>
                   </div>
-                </div>
-              </div>
-              <div class="col-md-7 col-lg-7 section-md-t3">
-                <div class="row section-t3">
-                  <div class="col-sm-12">
-                    <div class="title-box-d">
-                      <h3 class="title-d">Amenities</h3>
+<!-- //////////////////////////// end block1 //////////////////////////// -->
+
+<!-- //////////////////////////// title block //////////////////////////// -->
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div style="box-sizing: content-box;
+                                              width: 94%;
+                                              background-color :#ECF8F6;
+                                              border: solid #ECF8F6 3px;
+                                              padding: 12px;
+                                              padding-bottom: 0px;
+                                              text-align: center;
+                                              margin-bottom: 14px ;">
+                                     <h3 class="title-d detSyle ">Prix sur demande </h3>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div class="amenities-list color-text-a">
-                  <ul class="list-a no-margin">
-                    <li>Balcony</li>
-                    <li>Outdoor Kitchen</li>
-                    <li>Cable Tv</li>
-                    <li>Deck</li>
-                    <li>Tennis Courts</li>
-                    <li>Internet</li>
-                    <li>Parking</li>
-                    <li>Sun Room</li>
-                    <li>Concrete Flooring</li>
+
+<!-- //////////////////////////// end block //////////////////////////// -->
+          <div class="col-md-7 col-lg-7 section-md-t3" style="margin-left: 2%; width: 100%">
+                <div class="">
+                  <ul class="list-a ">
+                  <li class="etique">Balcony</li> 
+                  <li class="etique">Balcony</li>
+                  <li class="etique">Balcony</li>
                   </ul>
                 </div>
               </div>
-            </div>
           </div>
-        </div>
+
+
+
+
+
+
+           
+<!-- ****************************************** -->
+               </div>      
+            </div>
+        </div>     
       </div>
     </section>
-
-
-
-
-
-
   </main>
   <?php include 'footer.php';?>
+  <div id="preloader"></div>
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
   <script src="style/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="style/vendor/swiper/swiper-bundle.min.js"></script>
@@ -180,3 +195,19 @@
   <script src="style/js/main.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+         

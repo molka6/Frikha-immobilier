@@ -161,19 +161,30 @@ body {
     padding: 0;
     list-style: none;
   }
+  
+  
+  
+  
   .list-a li {
-    position: relative;
-    width: 50%;
-    float: left;
-    padding-left: 25px;
-    padding-right: 5px;
+    border: solid #ECF8F6 3px;
+      margin: 1%;
+      /* position: relative; */
+      width: 50%;
+      float: left;
+      padding-left: 11px;
+      padding-right: 19px;
   }
+  
+  
+  
+  
   @media (min-width: 992px) {
     .list-a li {
       width: 33.333%;
     }
   }
-  .list-a li:before {
+  
+  /* .list-a li:before {
     content: "";
     width: 10px;
     height: 2px;
@@ -182,7 +193,7 @@ body {
     top: 15px;
     left: 0;
   }
-  
+   */
   /*------/ Pagination-a /------*/
   .pagination-a {
     text-decoration: none;
@@ -309,6 +320,7 @@ body {
     padding-bottom: 1.8rem;
     margin-bottom: 1rem;
     position: relative;
+    text-align: center;
   }
   .title-box-d .title-d {
     font-weight: 600;
@@ -1242,10 +1254,10 @@ body {
     width: 200px;
     border-color: #313131;
   }
-
   
-
-
+  
+  
+  
   .property-grid .grid-option .custom-select:hover, .property-grid .grid-option .custom-select:active, .property-grid .grid-option .custom-select:focus {
     border-color: #313131;
   }
@@ -1887,7 +1899,7 @@ body {
     padding-top: 28px;
     margin-top: 24px;
     background: #f3f3f3;
-}
+  }
   
   .section-footer ul {
     line-height: 2;
@@ -1964,11 +1976,11 @@ body {
     top: 0;
     left: 0;
   } 
-
- 
-
- 
-
+  
+  
+  
+  
+  
     .title-position{
       position: absolute !important;
       top: 58%; left: 50%; 
@@ -1980,9 +1992,12 @@ body {
     background: url(../image/devider.png) no-repeat center center;
     margin: 5px 0 31px;
     }
-
+  
     
-
+  
   .property-grid  .nomb{
      color: block;
    }
+  
+  
+  
