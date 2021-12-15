@@ -101,9 +101,10 @@ foreach ($recipes as $key => $recipe) {
                   </div>
                   <div class="card-body-a">
                     <div class="price-box d-flex">
-                      <span class="price-a"><?php echo $recipe['disponibilité']; ?> </span>
+                      <span class="price-a"><?php echo $recipe['disponibilité']; ?></span>
                     </div>
-                    <a href="detail.php" class="link-a">Voir détails
+                   
+                    <a href='detail.php?id=<?php echo $recipe['Id'];?>' class="link-a">Voir détails
                       <span class="bi bi-chevron-right"></span>
                     </a>
                   </div>

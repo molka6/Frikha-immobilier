@@ -19,26 +19,31 @@
 <div class="click-closed"></div>
   <?php include 'navbar.php';?>
   <main id="main">
+  <?php
+require_once 'Connexion/connexion.php' ;
+  $sql = 'SELECT * FROM maison WHERE Id = '.$_GET['id'];
+  $query =  $mysqlClient->prepare($sql);
+  $query-> execute();
+  $recipes = $query->fetchAll(PDO::FETCH_ASSOC);  
+foreach ($recipes as $key => $recipe) {
+?>
     <section class="intro-single">
       <div class="container">
         <div class="row">
           <div class="col-md-12 col-lg-8">
             <div class="title-single-box">
-              <h1 class="title-single">304 Blaster Up</h1>
-              <span class="color-text-a">Chicago, IL 606543</span>
+              <h1 class="title-single"> <?php echo $recipe['Titre']; ?></h1>
+              <span class="color-text-a">Route Gremda klm 8</span>
             </div>
           </div>
           <div class="col-md-12 col-lg-4">
             <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
               <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                  <a href="index.html">Home</a>
-                </li>
-                <li class="breadcrumb-item">
-                  <a href="property-grid.html">Properties</a>
+                  <a href="maison.php">Maison</a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">
-                  304 Blaster Up
+                <?php echo $recipe['Titre']; ?>
                 </li>
               </ol>
             </nav>
@@ -46,23 +51,39 @@
         </div>
       </div>
     </section>
+
+
+
+
+
     <section class="property-single nav-arrow-b">
       <div class="container">
-        <div class="row ">
+      <?php 
+    $req = $mysqlClient->query('SELECT image.titre , image.id  From image join maison on maison.id = image.maison_id where image.maison_id='.$_GET['id'] );
+      while($data = $req->fetch())
+      $tab[] =$data['titre']; 
+      ?>
 
+
+
+        <div class="row ">
           <div class="col-lg-6">
             <div id="property-single-carousel" class="swiper">
               <div class="swiper-wrapper taille">
-                <div class="carousel-item-b swiper-slide">
-                  <img src="style/img/post-1.jpg" alt="">
-                </div>
-                <div class="carousel-item-b swiper-slide">
-                  <img src="style/img/post-2.jpg" alt="">
-                </div>
+
+              <?php  for ($i=0 ; $i< count($tab) ; $i++) { ?>
+                              <div class="carousel-item-b swiper-slide">
+                                 <?php echo "<img src='./Images/".$tab[$i]."' width='500px' height='500px' ><br>";
+                                 ?>
+                               </div>
+              <?php   } ?> 
+
+
               </div>
             </div>
             <div class="property-single-carousel-pagination carousel-pagination"></div>
           </div>
+         <?php } ?>
 <!-- ******************** -->
           <div class="col-lg-6 details">
             <div id="property-single-carousel" class="swiper">
@@ -80,6 +101,7 @@
                                               padding: 12px;
                                               padding-bottom: 0px;
                                               text-align: center;
+                                              border-radius: 20px;
                                               margin-bottom: 14px ;">
                                      <h3 class="title-d detSyle ">Détails</h3>
                       </div>
@@ -90,6 +112,9 @@
 
 
 <!-- //////////////////////////// block1 //////////////////////////// -->
+
+
+
                   <div class="summary-list">
                     <ul class="list">
                       <li class="d-flex justify-content-between">
@@ -97,52 +122,54 @@
                             <img src="style/image/surface.png" alt="" style="width: 6%; margin-right: 9px;">
                             <strong>Superficie</strong>
                         </div>
-                        <span>1134m²</span>
+                        <span><?php echo $recipe['Superficie'];?>m²</span>
                       </li>
                       <li class="d-flex justify-content-between">
                         <div>
                             <img src="style/image/esquisser.png" alt="" style="width: 7%; margin-right: 9px;">
                             <strong>Superficie construite: </strong>
                         </div>
-                        <span>1134m²</span>
+                        <span><?php echo $recipe['Superficie construite']; ?>m²</span>
                       </li>
                       <li class="d-flex justify-content-between">
                         <div>
                             <img src="style/image/esquisser.png" alt="" style="width: 7%; margin-right: 9px;">
                             <strong>Nombre de pièce: </strong>
                         </div>
-                        <span>1134</span>
+                        <span><?php echo $recipe['Nombre de piéce']; ?></span>
                       </li>
                       <li class="d-flex justify-content-between">
                         <div>
                             <img src="style/image/chambre.png" alt="" style="width: 7%; margin-right: 9px;">
                             <strong>Nombre de chambre: </strong>
                         </div>
-                        <span>1134</span>
+                        <span><?php echo $recipe['Nombre de chambre']; ?></span>
                       </li>
                        <li class="d-flex justify-content-between">
                         <div>
                             <img src="style/image/salle.png" alt="" style="width: 7%; margin-right: 9px;">
                             <strong>Nombre de salle d'eau: </strong>
                         </div>
-                        <span>1134</span>
+                        <span><?php echo $recipe['Nombre de salle deau']; ?></span>
                       </li>
                         <li class="d-flex justify-content-between">
                         <div>
                             <img src="style/image/salle-de-bains.png" alt="" style="width: 7%; margin-right: 9px;">
                             <strong>Nombre de salle de bain: </strong>
                         </div>
-                        <span>1134</span>
+                        <span><?php echo $recipe['Nombre de salle de bain']; ?></span>
                         </li>
                         <li class="d-flex justify-content-between">
                         <div>
                             <img src="style/image/chambre3.png" alt="" style="width: 7%; margin-right: 9px;">
                             <strong>Nombre de couchage: </strong>
                         </div>
-                        <span>1134</span>
+                        <span><?php echo $recipe['Nombre de couchage']; ?></span>
                       </li>
                     </ul>
                   </div>
+
+    
 <!-- //////////////////////////// end block1 //////////////////////////// -->
 
 <!-- //////////////////////////// title block //////////////////////////// -->
@@ -155,6 +182,7 @@
                                               padding: 12px;
                                               padding-bottom: 0px;
                                               text-align: center;
+                                              border-radius: 20px;
                                               margin-bottom: 14px ;">
                                      <h3 class="title-d detSyle ">Prix sur demande </h3>
                       </div>
@@ -182,7 +210,48 @@
 <!-- ****************************************** -->
                </div>      
             </div>
-        </div>     
+
+         
+
+
+        </div>   
+        <div class="col-lg-6">
+            <div id="property-single-carousel" class="swiper">
+              <div class="swiper-wrapper taille">
+
+
+
+
+
+              <div class="">
+                      <ul class="list-inline">
+                        <li class="list-inline-item">
+                          <a href="#">
+                            <i class="bi-facebook" aria-hidden="true"></i>
+                          </a>
+                        </li>
+                        <li class="list-inline-item">
+                          <a href="#">
+                            <i class="bi bi-twitter" aria-hidden="true"></i>
+                          </a>
+                        </li>
+                        <li class="list-inline-item">
+                          <a href="#">
+                            <i class="bi bi-instagram" aria-hidden="true"></i>
+                          </a>
+                        </li>
+                        <li class="list-inline-item">
+                          <a href="#">
+                            <i class="bi bi-linkedin" aria-hidden="true"></i>
+                          </a>
+                        </li>
+                      </ul>
+               </div>
+              </div>
+            </div>
+          </div>
+          
+  
       </div>
     </section>
   </main>
