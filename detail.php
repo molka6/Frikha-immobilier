@@ -52,204 +52,170 @@ foreach ($recipes as $key => $recipe) {
       </div>
     </section>
 
-
-
-
-
     <section class="property-single nav-arrow-b">
       <div class="container">
-      <?php 
-    $req = $mysqlClient->query('SELECT image.titre , image.id  From image join maison on maison.id = image.maison_id where image.maison_id='.$_GET['id'] );
-      while($data = $req->fetch())
-      $tab[] =$data['titre']; 
-      ?>
+                      <?php 
+                      $req = $mysqlClient->query('SELECT image.titre , image.id  From image join maison on maison.id = image.maison_id where image.maison_id='.$_GET['id'] );
+                      while($data = $req->fetch())
+                      $tab[] =$data['titre']; 
+                      ?>
 
 
 
+<!-- ------------------------------bloc1--------------------------------- -->
         <div class="row ">
-          <div class="col-lg-6">
-            <div id="property-single-carousel" class="swiper">
-              <div class="swiper-wrapper taille">
-
-              <?php  for ($i=0 ; $i< count($tab) ; $i++) { ?>
-                              <div class="carousel-item-b swiper-slide">
-                                 <?php echo "<img src='./Images/".$tab[$i]."' width='500px' height='500px' ><br>";
-                                 ?>
-                               </div>
-              <?php   } ?> 
-
-
-              </div>
-            </div>
-            <div class="property-single-carousel-pagination carousel-pagination"></div>
-          </div>
-         <?php } ?>
-<!-- ******************** -->
-          <div class="col-lg-6 details">
-            <div id="property-single-carousel" class="swiper">
-              <div class="swiper-wrapper taille">
-              <!-- /////////////// --> 
-              <div class="property-summary" style="margin-left: 2%; width: 100%">
-
-<!-- //////////////////////////// title block //////////////////////////// -->
-                  <div class="row">
-                    <div class="col-sm-12">
-                      <div style="box-sizing: content-box;
-                                              width: 94%;
-                                              background-color :#ECF8F6;
-                                              border: solid #ECF8F6 3px;
-                                              padding: 12px;
-                                              padding-bottom: 0px;
-                                              text-align: center;
-                                              border-radius: 20px;
-                                              margin-bottom: 14px ;">
-                                     <h3 class="title-d detSyle ">Détails</h3>
-                      </div>
+                <div class="col-lg-6">
+                  <div id="property-single-carousel" class="swiper">
+                    <div class="swiper-wrapper taille">
+                            <?php  for ($i=0 ; $i< count($tab) ; $i++) { ?>
+                                            <div class="carousel-item-b swiper-slide">
+                                              <?php echo "<img src='./Images/".$tab[$i]."' width='500px' height='500px' ><br>";
+                                              ?>
+                                            </div>
+                            <?php   } ?> 
                     </div>
                   </div>
-
-<!-- //////////////////////////// end block //////////////////////////// -->
-
-
-<!-- //////////////////////////// block1 //////////////////////////// -->
+                              <div class="property-single-carousel-pagination carousel-pagination"></div>
+                          
+                              <!-- -------------social--------- -->
 
 
-
-                  <div class="summary-list">
-                    <ul class="list">
-                      <li class="d-flex justify-content-between">
-                        <div>
-                            <img src="style/image/surface.png" alt="" style="width: 6%; margin-right: 9px;">
-                            <strong>Superficie</strong>
-                        </div>
-                        <span><?php echo $recipe['Superficie'];?>m²</span>
-                      </li>
-                      <li class="d-flex justify-content-between">
-                        <div>
-                            <img src="style/image/esquisser.png" alt="" style="width: 7%; margin-right: 9px;">
-                            <strong>Superficie construite: </strong>
-                        </div>
-                        <span><?php echo $recipe['Superficie construite']; ?>m²</span>
-                      </li>
-                      <li class="d-flex justify-content-between">
-                        <div>
-                            <img src="style/image/esquisser.png" alt="" style="width: 7%; margin-right: 9px;">
-                            <strong>Nombre de pièce: </strong>
-                        </div>
-                        <span><?php echo $recipe['Nombre de piéce']; ?></span>
-                      </li>
-                      <li class="d-flex justify-content-between">
-                        <div>
-                            <img src="style/image/chambre.png" alt="" style="width: 7%; margin-right: 9px;">
-                            <strong>Nombre de chambre: </strong>
-                        </div>
-                        <span><?php echo $recipe['Nombre de chambre']; ?></span>
-                      </li>
-                       <li class="d-flex justify-content-between">
-                        <div>
-                            <img src="style/image/salle.png" alt="" style="width: 7%; margin-right: 9px;">
-                            <strong>Nombre de salle d'eau: </strong>
-                        </div>
-                        <span><?php echo $recipe['Nombre de salle deau']; ?></span>
-                      </li>
-                        <li class="d-flex justify-content-between">
-                        <div>
-                            <img src="style/image/salle-de-bains.png" alt="" style="width: 7%; margin-right: 9px;">
-                            <strong>Nombre de salle de bain: </strong>
-                        </div>
-                        <span><?php echo $recipe['Nombre de salle de bain']; ?></span>
-                        </li>
-                        <li class="d-flex justify-content-between">
-                        <div>
-                            <img src="style/image/chambre3.png" alt="" style="width: 7%; margin-right: 9px;">
-                            <strong>Nombre de couchage: </strong>
-                        </div>
-                        <span><?php echo $recipe['Nombre de couchage']; ?></span>
-                      </li>
-                    </ul>
-                  </div>
-
-    
-<!-- //////////////////////////// end block1 //////////////////////////// -->
-
-<!-- //////////////////////////// title block //////////////////////////// -->
-                  <div class="row">
-                    <div class="col-sm-12">
-                      <div style="box-sizing: content-box;
-                                              width: 94%;
-                                              background-color :#ECF8F6;
-                                              border: solid #ECF8F6 3px;
-                                              padding: 12px;
-                                              padding-bottom: 0px;
-                                              text-align: center;
-                                              border-radius: 20px;
-                                              margin-bottom: 14px ;">
-                                     <h3 class="title-d detSyle ">Prix sur demande </h3>
-                      </div>
-                    </div>
-                  </div>
-
-<!-- //////////////////////////// end block //////////////////////////// -->
-          <div class="col-md-7 col-lg-7 section-md-t3" style="margin-left: 2%; width: 100%">
-                <div class="">
-                  <ul class="list-a ">
-                  <li class="etique">Balcony</li> 
-                  <li class="etique">Balcony</li>
-                  <li class="etique">Balcony</li>
-                  </ul>
+                              <!-- --------------end social ------------ -->
                 </div>
-              </div>
-          </div>
+                          <?php } ?>
+
+                         
+<!-- ******************** -->
+                <div class="col-lg-6 details">
+
+
+                <!-- ------------------block2 ------------------------- -->
+                    <div id="property-single-carousel" class="swiper">
+                      <div class="swiper-wrapper taille">
+                            <div class="property-summary" style="margin-left: 2%; width: 100%">
+
+
+
+                                  <div class="row">
+                                    <div class="col-sm-12">
+                                      <div style="box-sizing: content-box;
+                                                              width: 94%;
+                                                              background-color :#ECF8F6;
+                                                              border: solid #ECF8F6 3px;
+                                                              padding: 12px;
+                                                              padding-bottom: 0px;
+                                                              text-align: center;
+                                                              border-radius: 20px;
+                                                              margin-bottom: 14px ;">
+                                                    <h3 class="title-d detSyle ">Détails</h3>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                  <div class="summary-list">
+                                    <ul class="list">
+                                      <li class="d-flex justify-content-between">
+                                        <div>
+                                            <img src="style/image/surface.png" alt="" style="width: 6%; margin-right: 9px;">
+                                            <strong>Superficie</strong>
+                                        </div>
+                                        <span><?php echo $recipe['Superficie'];?>m²</span>
+                                      </li>
+                                      <li class="d-flex justify-content-between">
+                                        <div>
+                                            <img src="style/image/esquisser.png" alt="" style="width: 7%; margin-right: 9px;">
+                                            <strong>Superficie construite: </strong>
+                                        </div>
+                                        <span><?php echo $recipe['Superficie construite']; ?>m²</span>
+                                      </li>
+                                      <li class="d-flex justify-content-between">
+                                        <div>
+                                            <img src="style/image/esquisser.png" alt="" style="width: 7%; margin-right: 9px;">
+                                            <strong>Nombre de pièce: </strong>
+                                        </div>
+                                        <span><?php echo $recipe['Nombre de piéce']; ?></span>
+                                      </li>
+                                      <li class="d-flex justify-content-between">
+                                        <div>
+                                            <img src="style/image/chambre.png" alt="" style="width: 7%; margin-right: 9px;">
+                                            <strong>Nombre de chambre: </strong>
+                                        </div>
+                                        <span><?php echo $recipe['Nombre de chambre']; ?></span>
+                                      </li>
+                                      <li class="d-flex justify-content-between">
+                                        <div>
+                                            <img src="style/image/salle.png" alt="" style="width: 7%; margin-right: 9px;">
+                                            <strong>Nombre de salle d'eau: </strong>
+                                        </div>
+                                        <span><?php echo $recipe['Nombre de salle deau']; ?></span>
+                                      </li>
+                                        <li class="d-flex justify-content-between">
+                                        <div>
+                                            <img src="style/image/salle-de-bains.png" alt="" style="width: 7%; margin-right: 9px;">
+                                            <strong>Nombre de salle de bain: </strong>
+                                        </div>
+                                        <span><?php echo $recipe['Nombre de salle de bain']; ?></span>
+                                        </li>
+                                        <li class="d-flex justify-content-between">
+                                        <div>
+                                            <img src="style/image/chambre3.png" alt="" style="width: 7%; margin-right: 9px;">
+                                            <strong>Nombre de couchage: </strong>
+                                        </div>
+                                        <span><?php echo $recipe['Nombre de couchage']; ?></span>
+                                      </li>
+                                    </ul>
+                                  </div>
+
+                                  <div class="row">
+                                    <div class="col-sm-12">
+                                      <div style="box-sizing: content-box;
+                                                              width: 94%;
+                                                              background-color :#ECF8F6;
+                                                              border: solid #ECF8F6 3px;
+                                                              padding: 12px;
+                                                              padding-bottom: 0px;
+                                                              text-align: center;
+                                                              border-radius: 20px;
+                                                              margin-bottom: 14px ;">
+                                                    <h3 class="title-d detSyle ">Options </h3>
+                                      </div>
+                                    </div>
+                                  </div>
+
+
+
+                      <?php 
+                      $req2 = $mysqlClient->query('SELECT option.nom   From option  join maison on maison.id = option.maison_id where option.maison_id='.$_GET['id'] );
+                      $recipes = $req2->fetchAll(PDO::FETCH_ASSOC);  
+                    
+                      ?>
+                                  <div class="col-md-7 col-lg-7 section-md-t3" style="margin-left: 2%; width: 100%">
+                                        <div class="">
+                                          <?php foreach ($recipes as $key => $recipe) {
+                                            ?>
+                                          <ul class="list-a">
+                                               <li class="etique"><?php echo $recipe['nom']  ?></li> 
+                                          </ul>
+                                          
+                                          <?php }  ?>  
+             
+                                        </div>
+                                      </div>
+                                  </div>
+
+
+           </div>      
+                      </div>
+                  </div> 
+                  <!-- ------------------end block2 ------------------------- -->
+        
 
 
 
 
 
+                        
 
-           
-<!-- ****************************************** -->
-               </div>      
-            </div>
-
-         
-
-
-        </div>   
-        <div class="col-lg-6">
-            <div id="property-single-carousel" class="swiper">
-              <div class="swiper-wrapper taille">
-
-
-
-
-
-              <div class="">
-                      <ul class="list-inline">
-                        <li class="list-inline-item">
-                          <a href="#">
-                            <i class="bi-facebook" aria-hidden="true"></i>
-                          </a>
-                        </li>
-                        <li class="list-inline-item">
-                          <a href="#">
-                            <i class="bi bi-twitter" aria-hidden="true"></i>
-                          </a>
-                        </li>
-                        <li class="list-inline-item">
-                          <a href="#">
-                            <i class="bi bi-instagram" aria-hidden="true"></i>
-                          </a>
-                        </li>
-                        <li class="list-inline-item">
-                          <a href="#">
-                            <i class="bi bi-linkedin" aria-hidden="true"></i>
-                          </a>
-                        </li>
-                      </ul>
-               </div>
-              </div>
-            </div>
-          </div>
           
   
       </div>

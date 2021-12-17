@@ -5,7 +5,6 @@
         <span></span>
         <span></span>
       </button>
-     
       <a class="navbar-brand text-brand" href="Accueil.php">FRIKHA <span class="color-b">IMMOBILIER</span></a>
   
       <img src="style/image/icon1.jpg" alt="" class="icon-im">
@@ -20,7 +19,7 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link " href="detail.php">Vente</a>
+            <a class="nav-link " href="maison.php">Maison</a>
           </li>
 
           <li class="nav-item">

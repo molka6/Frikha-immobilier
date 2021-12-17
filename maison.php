@@ -14,6 +14,7 @@
   <link href="style/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="style/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
   <link href="style/css/style.css" rel="stylesheet"> 
+  
 </head>
 <body>
   <div class="click-closed"></div>
@@ -55,15 +56,23 @@ $query-> execute();
 $result = $query->fetch();
 $nbArticles = (int) $result['nb_articles'];
 ?>
+
+
+<?php
+if (isset($_POST['region1'])) { // si une region à été choisie1
+  $region = $_POST['disponible'];
+};
+
+?>
     <section class="property-grid grid">
       <div class="container">
         <div class="row">
           <div class="col-sm-12">
             <div class="grid-option">
-              <form>
+              <form name="region1" method="POST" action="maison.php">
                 <select class="custom-select">
-                  <option selected>All</option>
-                  <option value="1">Disponible</option>
+                  <option name="all" selected>All</option>
+                  <option name="disponible" value="1">Disponible</option>
                   <option value="2">For Rent</option>
                   <option value="3">For Sale</option>
                 </select>
@@ -73,7 +82,7 @@ $nbArticles = (int) $result['nb_articles'];
           </div>          
 <!-- ----------------------------------------------------------------------------------- -->
 <?php
-$parPage = 12;
+$parPage = 6;
 $pages = ceil($nbArticles / $parPage);
 $premier = ($currentPage * $parPage) - $parPage;
 $sql = 'SELECT * FROM `maison` ORDER BY `Date_Creation` DESC LIMIT :premier, :parpage;';
@@ -82,19 +91,24 @@ $query->bindValue(':premier', $premier, PDO::PARAM_INT);
 $query->bindValue(':parpage', $parPage, PDO::PARAM_INT);
 $query-> execute(); 
 $recipes = $query->fetchAll(PDO::FETCH_ASSOC);
-$recipesStatement = $mysqlClient->prepare($sql);
 foreach ($recipes as $key => $recipe) {
 ?>
-    <div class="col-md-3">
+<?php 
+$req = $mysqlClient->query('SELECT image.titre From image join maison on maison.id = image.maison_id where image.maison_id='.$recipe['Id'] );
+$images = $req->fetchAll(PDO::FETCH_ASSOC);
+foreach ($images as $img);
+?>
+    <div class="col-md-4">
             <div class="card-box-a card-shadow">
               <div class="img-box-a">
-                <img src="style/img/property-1.jpg" alt="" class="img-a img-fluid">
+              <?php echo "<img src='./Images/".$img["titre"]."' width='500px' height='500px' ><br>"; 
+              ?>
               </div>
               <div class="card-overlay">
                 <div class="card-overlay-a-content">
                   <div class="card-header-a">
                     <h2 class="card-title-a">
-                      <a href="#">204 Mount
+                      <a href='detail.php?id=<?php echo $recipe['Id'];?>'> Adresse 
                         <br /> <?php echo $recipe['Titre']; ?>
                        </a>
                     </h2>
@@ -142,21 +156,16 @@ require_once('Connexion/close.php');
                     <span class="bi bi-chevron-left"></span>
                   </a>
                 </li>
-               
-               
                 <?php for($page = 1; $page <= $pages; $page++): ?>
                     <li class="page-item <?= ($currentPage == $page) ? "active" : "" ?>">
                         <a href="maison.php?page<?= $page ?>" class="page-link"><?= $page ?></a>
                     </li>
                 <?php endfor ?>
-                
-
                 <li class="page-item next <?= ($currentPage == $pages) ? "disabled" : "" ?>">
                   <a class="page-link" href="maison.php?page=<?= $currentPage + 1 ?>">
                     <span class="bi bi-chevron-right"></span>
                   </a>
                 </li>
-
               </ul>
             </nav>
           </div>
@@ -164,6 +173,7 @@ require_once('Connexion/close.php');
       </div>
     </section>
   </main>
+  
   <?php include 'footer.php';?>
   <div id="preloader"></div>
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
