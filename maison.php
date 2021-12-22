@@ -14,7 +14,6 @@
   <link href="style/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="style/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
   <link href="style/css/style.css" rel="stylesheet"> 
-  
 </head>
 <body>
   <div class="click-closed"></div>
@@ -25,7 +24,7 @@
         <div class="row">
           <div class="col-md-12 col-lg-8">
             <div class="title-single-box">
-              <h1 class="title-single">Maison</h1>
+              <h1 class="title-single">VILLA</h1>
             </div>
           </div>
           <div class="col-md-12 col-lg-4">
@@ -35,7 +34,7 @@
                   <a href="Accueil.php">Accueil</a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">
-                Maison
+                Villa
                 </li>
               </ol>
             </nav>
@@ -56,13 +55,10 @@ $query-> execute();
 $result = $query->fetch();
 $nbArticles = (int) $result['nb_articles'];
 ?>
-
-
 <?php
 if (isset($_POST['region1'])) { // si une region à été choisie1
   $region = $_POST['disponible'];
 };
-
 ?>
     <section class="property-grid grid">
       <div class="container">
@@ -80,7 +76,6 @@ if (isset($_POST['region1'])) { // si une region à été choisie1
               <p style="color : black ; float: left ; margin-left:3% ;" >  <?php echo $nbArticles;  ?>  Biens </p>
             </div>
           </div>          
-<!-- ----------------------------------------------------------------------------------- -->
 <?php
 $parPage = 6;
 $pages = ceil($nbArticles / $parPage);
@@ -105,23 +100,51 @@ foreach ($images as $img);
               ?>
               </div>
               <div class="card-overlay">
+
+
+              <div class="price-box d-flex" style="float: right ; padding-top: 11% ;  padding-right: 3% ;">
+                          <?php  if($recipe['disponibilité'] == "Disponible"){  ?> 
+                                 <span class="price-a"  style="border: 2px solid  #69f80f;" ><?php echo $recipe['disponibilité']; ?>  </span>
+                          <?php } else {  ?> 
+                          <span  class="price-a"> Non disponible </span>
+                          <?php } ?> 
+              </div>
+
+            
                 <div class="card-overlay-a-content">
                   <div class="card-header-a">
                     <h2 class="card-title-a">
-                      <a href='detail.php?id=<?php echo $recipe['Id'];?>'> Adresse 
-                        <br /> <?php echo $recipe['Titre']; ?>
+                      <a href='detail.php?id=<?php echo $recipe['Id'];?>'> 
+                      <?php echo $recipe['Titre']; ?>
                        </a>
                     </h2>
                   </div>
+
+
+
+              
+
+
+
                   <div class="card-body-a">
                     <div class="price-box d-flex">
-                      <span class="price-a"><?php echo $recipe['disponibilité']; ?></span>
+                        <span class="price-a"> prix | <?php echo $recipe['prix']; ?> TND  </span>
                     </div>
-                   
                     <a href='detail.php?id=<?php echo $recipe['Id'];?>' class="link-a">Voir détails
                       <span class="bi bi-chevron-right"></span>
                     </a>
                   </div>
+
+
+                  
+
+                 
+
+
+
+
+
+
                   <div class="card-footer-a">
                     <ul class="card-info d-flex justify-content-around">
                       <li>
@@ -132,12 +155,18 @@ foreach ($images as $img);
                       </li>
                       <li>
                         <h4 class="card-info-title">Construite</h4>
-                        <span> <?php echo $recipe['Superficie construite'];?>m
+                        <span> <?php echo $recipe['Superficie_construite'];?>m
                           <sup>2</sup> 
                         </span>
                       </li>
                     </ul>
                   </div>
+
+
+
+
+
+
                 </div>
               </div>
             </div>
@@ -173,7 +202,6 @@ require_once('Connexion/close.php');
       </div>
     </section>
   </main>
-  
   <?php include 'footer.php';?>
   <div id="preloader"></div>
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>

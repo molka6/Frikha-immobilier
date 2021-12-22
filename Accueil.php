@@ -111,7 +111,7 @@
   <?php include 'navbar.php';?>
   <div class="intro intro-carousel swiper position-relative">
     <div class="swiper-wrapper">
-      <div class="swiper-slide carousel-item-a intro-item bg-image" style="background-image: url(style/img/slide-1.jpg)">
+      <div class="swiper-slide carousel-item-a intro-item bg-image" style="background-image: url(style/image/res1.jpg)">
         <div class="overlay overlay-a"></div>
         <div class="intro-content display-table">
           <div class="table-cell">
@@ -136,7 +136,7 @@
           </div>
         </div>
       </div>
-      <div class="swiper-slide carousel-item-a intro-item bg-image" style="background-image: url(style/img/slide-2.jpg)">
+      <div class="swiper-slide carousel-item-a intro-item bg-image" style="background-image: url(style/image/silde2.jpg)">
         <div class="overlay overlay-a"></div>
         <div class="intro-content display-table">
           <div class="table-cell">
@@ -161,7 +161,7 @@
           </div>
         </div>
       </div>
-      <div class="swiper-slide carousel-item-a intro-item bg-image" style="background-image: url(style/img/slide-3.jpg)">
+      <div class="swiper-slide carousel-item-a intro-item bg-image" style="background-image: url(style/image/res1.jpg)">
         <div class="overlay overlay-a"></div>
         <div class="intro-content display-table">
           <div class="table-cell">
@@ -283,7 +283,8 @@
         </div>
       </form>
     </div>
-  </div><!-- End Property Search Section -->>
+  </div><!-- End Property Search Section -->
+  <br>
 
 
 
@@ -295,38 +296,11 @@
     <section class="news-grid grid">
       <div class="container">
         <div class="row">
+
           <div class="col-md-8 ">
             <div class="card-box-b card-shadow news-box test">
               <div class="img-box-b">
-                <img src="style/img/slide-3.jpg" alt="" class="img-b img-fluid">
-              </div>
-              <div class="card-overlay">
-                <div class="card-header-b title-position" >
-                  <div class="card-title-b">
-                    <h2 class="title-2"> <a href="maison.php">Maison</a></h2>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card-box-b card-shadow news-box test">
-              <div class="img-box-b">
-                <img src="style/img/slide-3.jpg" alt="" class="img-b img-fluid">
-              </div>
-              <div class="card-overlay">
-                <div class="card-header-b title-position" >
-                  <div class="card-title-b">
-                    <h2 class="title-2"> <a href="Appartement.php">Appartement</a></h2>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-8 ">
-            <div class="card-box-b card-shadow news-box test">
-              <div class="img-box-b">
-                <img src="style/img/slide-3.jpg" alt="" class="img-b img-fluid">
+                <img src="style/image/slide1.jpg" alt="" class="img-b img-fluid">
               </div>
               <div class="card-overlay">
                 <div class="card-header-b title-position" >
@@ -337,15 +311,48 @@
               </div>
             </div>
           </div>
+
+
+
           <div class="col-md-4">
             <div class="card-box-b card-shadow news-box test">
               <div class="img-box-b">
-                <img src="style/img/slide-3.jpg" alt="" class="img-b img-fluid">
+                <img src="style/image/slide1.jpg" alt="" class="img-b img-fluid">
               </div>
               <div class="card-overlay">
                 <div class="card-header-b title-position" >
                   <div class="card-title-b">
-                    <h2 class="title-2"> <a href="Appartement.php">Terrain</a></h2>
+                    <h2 class="title-2"> <a href="Appartement.php">Appartement</a></h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-8 ">
+            <div class="card-box-b card-shadow news-box test">
+              <div class="img-box-b">
+                <img src="style/image/slide1.jpg" alt="" class="img-b img-fluid">
+              </div>
+              <div class="card-overlay">
+                <div class="card-header-b title-position" >
+                  <div class="card-title-b">
+                    <h2 class="title-2"> <a href="maison.php">Terrain</a></h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card-box-b card-shadow news-box test">
+              <div class="img-box-b">
+                <img src="style/image/silde2.jpg" alt="" class="img-b img-fluid">
+              </div>
+              <div class="card-overlay">
+                <div class="card-header-b title-position" >
+                  <div class="card-title-b">
+                    <h2 class="title-2"> <a href="Appartement.php">Maison</a></h2>
                   </div>
                 </div>
               </div>

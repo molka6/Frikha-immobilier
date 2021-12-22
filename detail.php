@@ -33,7 +33,7 @@ foreach ($recipes as $key => $recipe) {
           <div class="col-md-12 col-lg-8">
             <div class="title-single-box">
               <h1 class="title-single"> <?php echo $recipe['Titre']; ?></h1>
-              <span class="color-text-a">Route Gremda klm 8</span>
+              <span class="color-text-a"><?php echo $recipe['Adresse']; ?></span>
             </div>
           </div>
           <div class="col-md-12 col-lg-4">
@@ -78,8 +78,10 @@ foreach ($recipes as $key => $recipe) {
                               <div class="property-single-carousel-pagination carousel-pagination"></div>
                           
                               <!-- -------------social--------- -->
-
-
+                              <br>
+                             <h3> Description </h3>
+                             <hr> 
+                            <p> <?php echo $recipe['plus'];?> </p> 
                               <!-- --------------end social ------------ -->
                 </div>
                           <?php } ?>
@@ -126,45 +128,47 @@ foreach ($recipes as $key => $recipe) {
                                             <img src="style/image/esquisser.png" alt="" style="width: 7%; margin-right: 9px;">
                                             <strong>Superficie construite: </strong>
                                         </div>
-                                        <span><?php echo $recipe['Superficie construite']; ?>m²</span>
+                                        <span><?php echo $recipe['Superficie_construite']; ?>m²</span>
                                       </li>
                                       <li class="d-flex justify-content-between">
                                         <div>
                                             <img src="style/image/esquisser.png" alt="" style="width: 7%; margin-right: 9px;">
                                             <strong>Nombre de pièce: </strong>
                                         </div>
-                                        <span><?php echo $recipe['Nombre de piéce']; ?></span>
+                                        <span><?php echo $recipe['Nombre_piece']; ?></span>
                                       </li>
                                       <li class="d-flex justify-content-between">
                                         <div>
                                             <img src="style/image/chambre.png" alt="" style="width: 7%; margin-right: 9px;">
                                             <strong>Nombre de chambre: </strong>
                                         </div>
-                                        <span><?php echo $recipe['Nombre de chambre']; ?></span>
+                                        <span><?php echo $recipe['Nombre_chambre']; ?></span>
                                       </li>
                                       <li class="d-flex justify-content-between">
                                         <div>
                                             <img src="style/image/salle.png" alt="" style="width: 7%; margin-right: 9px;">
                                             <strong>Nombre de salle d'eau: </strong>
                                         </div>
-                                        <span><?php echo $recipe['Nombre de salle deau']; ?></span>
+                                        <span><?php echo $recipe['Nombre_salle_deau']; ?></span>
                                       </li>
                                         <li class="d-flex justify-content-between">
                                         <div>
                                             <img src="style/image/salle-de-bains.png" alt="" style="width: 7%; margin-right: 9px;">
                                             <strong>Nombre de salle de bain: </strong>
                                         </div>
-                                        <span><?php echo $recipe['Nombre de salle de bain']; ?></span>
+                                        <span><?php echo $recipe['Nombre_salle_bain']; ?></span>
                                         </li>
                                         <li class="d-flex justify-content-between">
                                         <div>
                                             <img src="style/image/chambre3.png" alt="" style="width: 7%; margin-right: 9px;">
                                             <strong>Nombre de couchage: </strong>
                                         </div>
-                                        <span><?php echo $recipe['Nombre de couchage']; ?></span>
+                                        <span><?php echo $recipe['Nombre_couchage']; ?></span>
                                       </li>
                                     </ul>
                                   </div>
+
+
 
                                   <div class="row">
                                     <div class="col-sm-12">
@@ -184,20 +188,111 @@ foreach ($recipes as $key => $recipe) {
 
 
 
+
+
+
                       <?php 
-                      $req2 = $mysqlClient->query('SELECT option.nom   From option  join maison on maison.id = option.maison_id where option.maison_id='.$_GET['id'] );
+                      $req2 = $mysqlClient->query('SELECT *   From options join maison on maison.id = options.maison_id where options.maison_id='.$_GET['id'] );
                       $recipes = $req2->fetchAll(PDO::FETCH_ASSOC);  
-                    
+                      foreach ($recipes as $key => $recipe);
                       ?>
                                   <div class="col-md-7 col-lg-7 section-md-t3" style="margin-left: 2%; width: 100%">
                                         <div class="">
-                                          <?php foreach ($recipes as $key => $recipe) {
-                                            ?>
+
+
+                                        <?php if($recipe['Balcon'] ==1) {?>
                                           <ul class="list-a">
-                                               <li class="etique"><?php echo $recipe['nom']  ?></li> 
+                                               <li class="etique">Balcon </li> 
                                           </ul>
+                                        <?php } ?>
                                           
-                                          <?php }  ?>  
+
+                                          <ul class="list-a">
+                                            <?php if($recipe['Terrasse'] ==1) {?>
+                                              <li class="etique">Terrasse  </li> 
+                                            <?php  } ?> 
+                                          </ul>
+
+                                          
+                                      
+
+                                          <ul class="list-a">
+                                          <?php if(  $recipe['Videophone'] == 1 ) {?>
+                                              <li class="etique">Videophone</li> 
+                                            <?php  } ?> 
+                                          </ul>
+
+                                          <ul class="list-a">
+                                            <?php if(  $recipe['EspaceGazon'] == 1 ) {?>
+                                              <li class="etique">Gazon	 </li> 
+                                            <?php  } ?> 
+                                          </ul>
+                                          <ul class="list-a">
+                                            <?php if(  $recipe['Alarme'] == 1 ) {?>
+                                              <li class="etique">	Alarme	 </li> 
+                                            <?php  } ?> 
+                                          </ul>
+                                          <ul class="list-a">
+                                            <?php if(  $recipe['Jardin'] == 1 ) {?>
+                                              <li class="etique">Jardin	 </li> 
+                                            <?php  } ?> 
+                                          </ul>
+                                          <ul class="list-a">
+                                            <?php if(  $recipe['Chauffage_centrale'] == 1 ) {?>
+                                              <li class="etique">Chauffage_Centrale</li> 
+                                            <?php  } ?> 
+                                          </ul>
+                                          <ul class="list-a">
+                                            <?php if(  $recipe['PhotoVoltaique'] == 1 ) {?>
+                                              <li class="etique">PhotoVoltaique	 </li> 
+                                            <?php  } ?> 
+                                          </ul>
+                                          <ul class="list-a">
+                                            <?php if(  $recipe['Chauffage_Eau_Solaire'] == 1 ) {?>
+                                              <li class="etique">Chauffage_Eau_Solaire	</li> 
+                                            <?php  } ?> 
+                                          </ul>
+                                          <ul class="list-a">
+                                            <?php if(  $recipe['Garage'] == 1 ) {?>
+                                              <li class="etique">Garage	 </li> 
+                                            <?php  } ?> 
+                                          </ul>
+                                          <ul class="list-a">
+                                            <?php if(  $recipe['Picine'] == 1 ) {?>
+                                              <li class="etique">Picine	 </li> 
+                                            <?php  } ?> 
+                                          </ul>
+                                          <ul class="list-a">
+                                            <?php if(  $recipe['Kitchinette'] == 1 ) {?>
+                                              <li class="etique">Kitchinette	 </li> 
+                                            <?php  } ?> 
+                                          </ul>
+                                          <ul class="list-a">
+                                            <?php if(  $recipe['Marbre'] == 1 ) {?>
+                                              <li class="etique">Marbre	 </li> 
+                                            <?php  } ?> 
+                                          </ul>
+                                          <ul class="list-a">
+                                            <?php if(  $recipe['Jacousie'] == 1 ) {?>
+                                              <li class="etique">Jacousie	 </li> 
+                                            <?php  } ?> 
+                                          </ul>
+                                          <ul class="list-a">
+                                            <?php if(  $recipe['Gaz_de_ville'] == 1 ) {?>
+                                              <li class="etique">Gaz_de_ville	 </li> 
+                                            <?php  } ?> 
+                                          </ul>
+                                          <ul class="list-a">
+                                            <?php if(  $recipe['Prio_de_voiture'] == 1 ) {?>
+                                              <li class="etique">Prio_de_voiture	 </li> 
+                                            <?php  } ?> 
+                                          </ul>
+
+                                         
+                                          
+                                        
+                        
+                                   
              
                                         </div>
                                       </div>
