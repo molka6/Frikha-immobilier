@@ -79,6 +79,7 @@ foreach ($recipes as $key => $recipe) {
                           
                               <!-- -------------social--------- -->
                               <br>
+                              <div class="fb-share-button" data-href="detail.php?id=<?php echo $recipe['Id'];?>" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Partager</a></div>
                              <h3> Description </h3>
                              <hr> 
                             <p> <?php echo $recipe['plus'];?> </p> 
@@ -316,6 +317,13 @@ foreach ($recipes as $key => $recipe) {
       </div>
     </section>
   </main>
+
+  <div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v12.0&appId=766586264037870&autoLogAppEvents=1" nonce="7xVL6cLu"></script>
+
+
+
+
   <?php include 'footer.php';?>
   <div id="preloader"></div>
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
