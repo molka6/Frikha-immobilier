@@ -1,6 +1,6 @@
 <?php
 
-require_once '../Connexion/connexion.php' ;
+require_once 'Connexion/connexion.php' ;
 
 
 var_dump($_POST);
@@ -19,15 +19,29 @@ if(isset($_FILES['file'])){
     //Taille max que l'on accepte
     $maxSize = 400000;
 
+
+
+$req_membres = $mysqlClient->prepare("INSERT INTO  appartement(Titre,Superficie) VALUES(?,?)");
+$titre = htmlspecialchars($_POST['titre']);
+$superficie = htmlspecialchars($_POST['supert']);
+$req_membres->execute(array($titre,$superficie));                                     
+$idm = $mysqlClient->lastInsertId();    
+
+
+
+
+
     if(in_array($extension, $extensions) && $size <= $maxSize && $error == 0){
         $uniqueName = uniqid('', true);
         //uniqid génère quelque chose comme ca : 5f586bf96dcd38.73540086
         $file = $uniqueName.".".$extension;
         //$file = 5f586bf96dcd38.73540086.jpg
-        move_uploaded_file($tmpName, '../Images/'.$file);
+        move_uploaded_file($tmpName, './Images/'.$file);
 
-        $req = $mysqlClient->prepare('INSERT INTO image_appartement (titre) VALUES (?)');
-        $req->execute([$file]);
+        $req = $mysqlClient->prepare('INSERT INTO image_appartement (titre,appartement_id) VALUES (?,?)');
+
+
+        $req->execute(array($file,$idm));
         echo "Image enregistrée";
 
  
@@ -61,9 +75,12 @@ if(isset($_FILES['file'])){
 
 
 
-    <form action="upload.php" method="POST" enctype="multipart/form-data">
+    <form action="insertimage.php" method="POST" enctype="multipart/form-data">
         <label for="file">Fichier</label>
         <input type="file" name="file">
+        <input type="text" name="titre">
+        <input type="text" name="supert">
+
         <button type="submit">Enregistrer</button>
     </form>
 
