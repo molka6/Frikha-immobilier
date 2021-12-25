@@ -65,15 +65,8 @@ if (isset($_POST['region1'])) { // si une region à été choisie1
         <div class="row">
           <div class="col-sm-12">
             <div class="grid-option">
-              <form name="region1" method="POST" action="maison.php">
-                <select class="custom-select">
-                  <option name="all" selected>All</option>
-                  <option name="disponible" value="1">Disponible</option>
-                  <option value="2">For Rent</option>
-                  <option value="3">For Sale</option>
-                </select>
-              </form>
-              <p style="color : black ; float: left ; margin-left:3% ;" >  <?php echo $nbArticles;  ?>  Biens </p>
+            
+              <h5  style="color : black ; float: left ; margin-left:3% ;" >  <?php echo $nbArticles;  ?>  Biens </h5>
             </div>
           </div>          
 <?php
@@ -100,17 +93,17 @@ foreach ($images as $img);
               ?>
               </div>
               <div class="card-overlay">
-
-
-              <div class="price-box d-flex" style="float: right ; padding-top: 11% ;  padding-right: 3% ;">
+              <div class="price-box d-flex" style="float: right ;
+               padding-top: 11% ; 
+                padding-right: 0% ;">
                           <?php  if($recipe['disponibilité'] == "Disponible"){  ?> 
-                                 <span class="price-a"  style="border: 2px solid  #69f80f;" ><?php echo $recipe['disponibilité']; ?>  </span>
+                                 <span class="price-a"  style="border: 2px solid  #196b5c; background-color: #196b5c;   border-radius: 0px 0px 0px 29px; " ><?php echo $recipe['disponibilité']; ?>  </span>
                           <?php } else {  ?> 
-                          <span  class="price-a"> Non disponible </span>
+                          <span  class="price-a" style="border: 2px solid  #5f3c00; background-color: #5f3c00;   border-radius: 0px 0px 0px 29px; "  > Non disponible </span>
                           <?php } ?> 
               </div>
 
-            
+
                 <div class="card-overlay-a-content">
                   <div class="card-header-a">
                     <h2 class="card-title-a">

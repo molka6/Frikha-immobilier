@@ -1,21 +1,13 @@
 <?php
 
 
-try
-{
-      $conn = new PDO('mysql:host=localhost;dbname=frikhaimmobilier;charset=utf8', 'root', '');
-}
-catch(Exception $e)
-{
-        die('Erreur : '.$e->getMessage());
-}
 
-
+require_once 'Connexion/connexion.php' ;
 
 if(isset($_POST['titre']) && isset($_POST['supert']) )
 {
   $sql = 'INSERT INTO maison(Titre,Superficie) VALUES(?,?)';
-  $query =  $conn->prepare($sql);
+  $query = $mysqlClient->prepare($sql);
   $titre = htmlspecialchars($_POST['titre']);
   $supert = htmlspecialchars($_POST['supert']);
   $query-> execute(array($titre,$supert));

@@ -42,6 +42,169 @@
         </div>
       </div>
     </section>
+    <?php 
+if(isset($_GET['page']) && !empty($_GET['page'])){
+  $currentPage = (int) strip_tags($_GET['page']);
+}else{
+  $currentPage = 1;
+}
+require_once 'Connexion/connexion.php' ;
+$sql ='SELECT COUNT(*) AS nb_articles FROM `appartement` ' ;
+$query =  $mysqlClient->prepare($sql);
+$query-> execute(); 
+$result = $query->fetch();
+$nbArticles = (int) $result['nb_articles'];
+?>
+<?php
+if (isset($_POST['region1'])) { // si une region à été choisie1
+  $region = $_POST['disponible'];
+};
+?>
+    <section class="property-grid grid">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="grid-option">
+              <h5 style="color : black ; float: left ; margin-left:3% ;" >  <?php echo $nbArticles;  ?>  Biens </h5>
+              <br/>
+            </div>
+          </div>          
+<?php
+$parPage = 6;
+$pages = ceil($nbArticles / $parPage);
+$premier = ($currentPage * $parPage) - $parPage;
+$sql = 'SELECT * FROM `appartement` ORDER BY `Date_Creation` DESC LIMIT :premier, :parpage;';
+$query =  $mysqlClient->prepare($sql);
+$query->bindValue(':premier', $premier, PDO::PARAM_INT);
+$query->bindValue(':parpage', $parPage, PDO::PARAM_INT);
+$query-> execute(); 
+$recipes = $query->fetchAll(PDO::FETCH_ASSOC);
+foreach ($recipes as $key => $recipe) {
+?>
+<?php 
+$req = $mysqlClient->query('SELECT image_appartement.titre From image_appartement join appartement on appartement.id = image_appartement.appartement_id where image_appartement.appartement_id='.$recipe['id'] );
+$images = $req->fetchAll(PDO::FETCH_ASSOC);
+foreach ($images as $img);
+?>
+    <div class="col-md-4">
+            <div class="card-box-a card-shadow">
+              <div class="img-box-a">
+              <?php echo "<img src='./Images/".$img["titre"]."' width='500px' height='500px' ><br>"; 
+              ?>
+              </div>
+              <div class="card-overlay">
+              <div class="price-box d-flex" style="float: right ;
+               padding-top: 11% ; 
+                padding-right: 0% ;">
+                          <?php  if($recipe['disponibilité'] == "Disponible"){  ?> 
+                                 <span class="price-a"  style="border: 2px solid  #196b5c; background-color: #196b5c;   border-radius: 0px 0px 0px 29px; " ><?php echo $recipe['disponibilité']; ?>  </span>
+                          <?php } else {  ?> 
+                          <span  class="price-a" style="border: 2px solid  #5f3c00; background-color: #5f3c00;   border-radius: 0px 0px 0px 29px; "  > Non disponible </span>
+                          <?php } ?> 
+              </div>
+                <div class="card-overlay-a-content">
+                  <div class="card-header-a">
+                    <h2 class="card-title-a">
+                      <a href='detail-appartement.php?id=<?php echo $recipe['id'];?>'> 
+                      <?php echo $recipe['Titre']; ?>
+                       </a>
+                    </h2>
+                  </div>
+
+
+
+              
+
+
+
+                  <div class="card-body-a">
+                    <div class="price-box d-flex">
+                        <span class="price-a"> prix | <?php echo $recipe['prix']; ?> TND  </span>
+                    </div>
+                    <a href='detail-appartement.php?id=<?php echo $recipe['id'];?>' class="link-a">Voir détails
+                      <span class="bi bi-chevron-right"></span>
+                    </a>
+                  </div>
+
+
+                  
+
+                 
+
+
+
+
+
+
+                  <div class="card-footer-a">
+                    <ul class="card-info d-flex justify-content-around">
+                      <li>
+                        <h4 class="card-info-title">Superficie</h4>
+                        <span> <?php echo $recipe['Superficie'];?>m
+                          <sup>2</sup> 
+                        </span>
+                      </li>
+                      <li>
+                        <h4 class="card-info-title">Construite</h4>
+                        <span> <?php echo $recipe['Superficie_construite'];?>m
+                          <sup>2</sup> 
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+
+
+
+
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+<?php
+}
+require_once('Connexion/close.php');
+?>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <nav class="pagination-a">
+              <ul class="pagination justify-content-end">
+                <li class="page-item   <?= ($currentPage == 1) ? "disabled" : "" ?>">
+                  <a class="page-link" href="maison.php?page=<?= $currentPage - 1 ?>" tabindex="-1">
+                    <span class="bi bi-chevron-left"></span>
+                  </a>
+                </li>
+                <?php for($page = 1; $page <= $pages; $page++): ?>
+                    <li class="page-item <?= ($currentPage == $page) ? "active" : "" ?>">
+                        <a href="maison.php?page<?= $page ?>" class="page-link"><?= $page ?></a>
+                    </li>
+                <?php endfor ?>
+                <li class="page-item next <?= ($currentPage == $pages) ? "disabled" : "" ?>">
+                  <a class="page-link" href="maison.php?page=<?= $currentPage + 1 ?>">
+                    <span class="bi bi-chevron-right"></span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div> 
+      </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
   </main>
   <?php include 'footer.php';?>
   <div id="preloader"></div>

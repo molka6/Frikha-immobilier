@@ -1,6 +1,6 @@
 <?php
 
-require_once 'Connexion/connexion.php' ;
+require_once '../Connexion/connexion.php' ;
 
 
 var_dump($_POST);
@@ -24,9 +24,9 @@ if(isset($_FILES['file'])){
         //uniqid génère quelque chose comme ca : 5f586bf96dcd38.73540086
         $file = $uniqueName.".".$extension;
         //$file = 5f586bf96dcd38.73540086.jpg
-        move_uploaded_file($tmpName, './Images/'.$file);
+        move_uploaded_file($tmpName, '../Images/'.$file);
 
-        $req = $mysqlClient->prepare('INSERT INTO image (titre) VALUES (?)');
+        $req = $mysqlClient->prepare('INSERT INTO image_appartement (titre) VALUES (?)');
         $req->execute([$file]);
         echo "Image enregistrée";
 
@@ -70,13 +70,13 @@ if(isset($_FILES['file'])){
 
     <h2>Mes images</h2>
     <?php 
-        $req = $mysqlClient->query('SELECT titre FROM image');
+        $req = $mysqlClient->query('SELECT titre FROM appartement');
         while($data = $req->fetch()){
             var_dump($data);
         }
     ?>
    <?php 
-    $req = $mysqlClient->query('SELECT titre FROM image');
+    $req = $mysqlClient->query('SELECT titre FROM image_appartement');
     while($data = $req->fetch()){
         echo "<img src='./Images/".$data['titre']."' width='300px' ><br>";
     }

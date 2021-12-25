@@ -21,7 +21,7 @@
   <main id="main">
   <?php
 require_once 'Connexion/connexion.php' ;
-  $sql = 'SELECT * FROM maison WHERE Id = '.$_GET['id'];
+  $sql = 'SELECT * FROM appartement WHERE id = '.$_GET['id'];
   $query =  $mysqlClient->prepare($sql);
   $query-> execute();
   $recipes = $query->fetchAll(PDO::FETCH_ASSOC);  
@@ -56,7 +56,7 @@ foreach ($recipes as $key => $recipe) {
     <section class="property-single nav-arrow-b">
       <div class="container">
                       <?php 
-                      $req = $mysqlClient->query('SELECT image.titre , image.id  From image join maison on maison.id = image.maison_id where image.maison_id='.$_GET['id'] );
+                      $req = $mysqlClient->query('SELECT image_appartement.titre , image_appartement.id  From image_appartement join appartement on appartement.id = image_appartement.appartement_id where image_appartement.appartement_id='.$_GET['id'] );
                       while($data = $req->fetch())
                       $tab[] =$data['titre']; 
                       ?>

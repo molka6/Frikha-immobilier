@@ -34,6 +34,7 @@ foreach ($recipes as $key => $recipe) {
             <div class="title-single-box">
               <h1 class="title-single"> <?php echo $recipe['type_propriete']; ?></h1>
               <span class="color-text-a"><?php echo $recipe['adresse']; ?></span>
+              <h3 style="color: #df591e" class="title-d detSyle"><?php echo $recipe['prix']; ?> TND</h3>
             </div>
           </div>
           <div class="col-md-12 col-lg-4">
@@ -79,9 +80,8 @@ foreach ($recipes as $key => $recipe) {
                           
                               <!-- -------------social--------- -->
                               <br>
-                             <h3> Description </h3>
-                             <hr> 
-                            <p> <?php echo $recipe['description'];?> </p> 
+                            <!-- description  -->
+                            <!--  end description -->
                               <!-- --------------end social ------------ -->
                 </div>
                           <?php } ?>
@@ -202,8 +202,6 @@ foreach ($recipes as $key => $recipe) {
 <!-- /////end hna  -->
 
 
-                                 
-
 
 
 
@@ -221,7 +219,9 @@ foreach ($recipes as $key => $recipe) {
         
 
 
-
+                  <h3> Description </h3>
+                             <hr> 
+                            <p> <?php echo $recipe['description'];?> </p> 
 
 
                         
@@ -229,7 +229,12 @@ foreach ($recipes as $key => $recipe) {
           
   
       </div>
+      
+  
     </section>
+
+
+
   </main>
   <?php include 'footer.php';?>
   <div id="preloader"></div>
